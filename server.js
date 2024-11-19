@@ -15,6 +15,11 @@ mongoose.connect(process.env.MONGO_URI, {
 }).then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
+
+const inventoryRoutes = require('./routes/inventoryRoutes');
+// use inventiry routes
+app.use('/api/inventory', inventoryRoutes);
+
 // Basic route to check server is running
 app.get('/', (req, res) => {
   res.send('Backend is running');
